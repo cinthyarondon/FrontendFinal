@@ -15,6 +15,9 @@ const Navbar = () => {
       <Link to="/favorites">
         Favorites
       </Link>
+      <Link to="/contact">
+        Contact
+      </Link>
       <button>Change theme</button>
     </nav>
   )
