@@ -1,27 +1,43 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Link} from "react-router-dom";
+import {favorite, addFav, deleteFav, getFav} from "../Components/utils/crudFavorites"
+import {ContextGlobal} from "./utils/global.context";
 
 
-const Card = ({ name, username, id, isFav }) => {
+const Card = ({name, username, id}) => {
 
-  const addFav = () => {
-    const cardInfo = { name, username, id };
-    localStorage.setItem(`card_${id}`, JSON.stringify(cardInfo));
-    alert('Agregado a favoritos')
-  };
+        const {state, dispatch} = useContext(ContextGlobal);
+        const addFavLocal = () => {
+            if (favorite(id)) {
+                alert("Dentists already exists!!");
+                return
+            }
+            const cardInfo = {name, username, id};
+            addFav(cardInfo)
+            state.favorites = getFav()
+            dispatch({ type: "FAV", payload: state.favorites });
+        }
 
-  return (
-    <div className="card">
+        const deleteFavLocal = () => {
+            deleteFav(id)
+            state.favorites = getFav()
+            dispatch({ type: "FAV", payload: state.favorites });
+        };
 
-      <Link to={`detail/${id}`}>
-      <img src={'img/doctor.jpg'} width={'80%'}/>
-      <h3>{name}</h3>
-      <h3>{username}</h3>
-      <h3>{id}</h3>
-      </Link>
-        { !isFav ?<button onClick={addFav} className="favButton">Add fav</button> : ''}
-    </div>
-  );
-};
+        return (
+            <div className="card">
+                <Link to={`/detail/${id}`}>
+                    <img src={'img/doctor.jpg'} width={'100%'} alt={"doctor"}/>
+                    <p>{name} <br/>
+                        {username}<br/>
+                        {id}
+                    </p>
+                </Link>
+                {!favorite(id) ? <button onClick={addFavLocal} className="favButton">☆</button> :
+                    <button onClick={deleteFavLocal} className="favButton">⭐</button>}
+            </div>
+        );
+    }
+;
 
 export default Card;
