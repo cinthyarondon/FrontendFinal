@@ -120,3 +120,18 @@ tr:nth-child(even) {
 .dark > a {
   color: white;
 }
+
+/* Footer styles */
+
+.footer-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
