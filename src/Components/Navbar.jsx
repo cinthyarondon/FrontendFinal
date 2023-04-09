@@ -23,7 +23,7 @@ const Navbar = () => {
                 <Link to="/contact">
                     Contact
                 </Link>
-                <button className="toggle" onClick={handleThemeChange}>{state.theme === "light" ? "🌙" : "🌞"}</button>
+                <button  style={{ marginRight: "50px" }} className="toggle" onClick={handleThemeChange}>{state.theme === "light" ? "🌙" : "🌞"}</button>
         </nav>
     )
 }

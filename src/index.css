@@ -25,11 +25,12 @@ h1{
 
 nav{
   display: flex;
-  width: 80vw;
   justify-content: flex-start;
   padding: 1rem;
   height: 60px;
   background-color: #fcecf5;
+  width: 100%;
+  padding-right: 500px;
 }
 
 a{
@@ -52,6 +53,25 @@ footer {
   width: 90%;
   height: 40px;
   margin-top: 2rem;
+}
+
+.footerDiv{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  bottom: 0;
+  width: 90%;
+  height: 40px;
+  margin-top: 2rem;
+  background-color: #333; 
+  color: #fff;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
 
 footer > img{
@@ -136,7 +156,7 @@ tr:nth-child(even) {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 20px;
+  padding: 0px;
 }
 
 /* Cards styles*/
